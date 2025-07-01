@@ -1,5 +1,6 @@
 # simple-react-full-stack
-"Trigger Docker build"
+<!-- Trigger build at 2:10 PM -->
+
 [![Build Status](https://travis-ci.org/crsandeep/simple-react-full-stack.svg?branch=master)](https://travis-ci.org/crsandeep/simple-react-full-stack)
 
 This is a boilerplate to build a full stack web application using React, Node.js, Express and Webpack. It is also configured with webpack-dev-server, eslint, prettier and babel.
