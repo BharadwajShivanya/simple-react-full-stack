@@ -28,4 +28,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: shivanya/img3:latest
+          tags: bshivanya/img3:latest
+
