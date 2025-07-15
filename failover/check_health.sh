@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 
-PROD_URL="http://localhost:5000/health"
+PROD_URL="http://prod:5000/health"
 UPSTREAM_CONF="/etc/nginx/conf.d/upstream.conf"
 NGINX_RELOAD="nginx -s reload"
 
