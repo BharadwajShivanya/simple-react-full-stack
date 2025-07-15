@@ -2,14 +2,19 @@ name: Stage 2 - Build and Push Docker Image
 
 on:
   push:
-    branches: [master]
+    branches:
+      - master  # Change if your default branch is different
 
 jobs:
-  build-and-push:
+  build:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+      packages: write
+
     steps:
-      - name: Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Set up Docker Buildx
@@ -18,11 +23,14 @@ jobs:
       - name: Log in to Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-      - name: Build Docker Image
-        run: docker build -t bshivanya/img3:latest .
+      - name: Build Docker image
+        run: |
+          docker build -t bshivanya/img3:latest -t bshivanya/img3:${{ github.sha }} ./monitoring
 
-      - name: Push Docker Image
-        run: docker push bshivanya/img3:latest
+      - name: Push Docker image
+        run: |
+          docker push bshivanya/img3:latest
+          docker push bshivanya/img3:${{ github.sha }}
 
 
 # name: Stage 2 - Build and Push Docker Image
